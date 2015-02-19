@@ -34,6 +34,7 @@ class repos::yum {
     command     => '/usr/bin/yum makecache',
     subscribe   => File[ 'puppetlabs.repo' ],
     refreshonly => true,
+    timeout     => 0,
   }
 
 }
