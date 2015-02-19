@@ -30,6 +30,10 @@ Vagrant.configure("2") do |config|
         ]
       end
 
+      if Vagrant.has_plugin?("vagrant-vbguest")
+          node_config.vbguest.auto_update = false
+      end
+
       node_config.vm.provision :puppet do |puppet|
         puppet.manifests_path = 'provision/manifests'
         puppet.module_path = 'provision/modules'
